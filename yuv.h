@@ -46,15 +46,6 @@ void allocateMatrix(YUV*** matrix, double WIDTH, double HEIGHT, double FACTOR);
 
 void allocateMatrixTypeDouble(YUV_Double*** matrix, double WIDTH, double HEIGHT, double FACTOR);
 
-void deallocateMatrix(YUV** matrix, double HEIGHT);
-
-void allocateBuffer(uint8_t** data, double SIZE);
-
-void deallocateBuffer(uint8_t* data);
-
-void allocateYUVBuffer(YUV** data, double SIZE);
-
-void deallocateYUVBuffer(YUV* data);
 
 void fillBuffer(uint8_t* data, double DATASIZE, uint8_t* buffer, double START);
 
@@ -75,5 +66,15 @@ void bicubicInterpolation(uint8_t** originalMatrix, uint8_t** matrix, double WID
 double* getAlpha(double* beta, double* alpha);
 
 uint8_t* getFrameFromVideo(char* fileForRead, int frameSize, int frameNumber);
+
+void deallocateMatrix(YUV** matrix, double HEIGHT);
+
+void allocateBuffer(uint8_t** data, double SIZE);
+
+void deallocateBuffer(uint8_t* data);
+
+void allocateYUVBuffer(YUV** data, double SIZE);
+
+void deallocateYUVBuffer(YUV* data);
 
 #endif
