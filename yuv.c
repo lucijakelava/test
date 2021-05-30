@@ -1,14 +1,5 @@
 #include "yuv.h"
 
-int getFrameCount(char* filename, int frame_size) {
-	FILE* fp = fopen(filename, "r");
-	fseek(fp, 0, SEEK_END);
-	int file_size = ftell(fp);
-	int frame_count = (int)(file_size / frame_size);
-	fclose(fp);
-	return frame_count;
-}
-
 void allocateMatrix(YUV * **matrix, double WIDTH, double HEIGHT, double FACTOR)
 {
 	int height_new = (int)(HEIGHT * FACTOR);
@@ -20,6 +11,17 @@ void allocateMatrix(YUV * **matrix, double WIDTH, double HEIGHT, double FACTOR)
 		*(*matrix + i) = (YUV*)malloc(sizeof(YUV) * width_new);
 	}
 }
+
+
+int getFrameCount(char* filename, int frame_size) {
+	FILE* fp = fopen(filename, "r");
+	fseek(fp, 0, SEEK_END);
+	int file_size = ftell(fp);
+	int frame_count = (int)(file_size / frame_size);
+	fclose(fp);
+	return frame_count;
+}
+
 
 void allocateMatrixTypeDouble(YUV_Double * **matrix, double WIDTH, double HEIGHT, double FACTOR)
 {
